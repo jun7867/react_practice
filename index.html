@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--  최종 결과 : <div id="root"><button>Like</button></div>-->
+    <script type="text/babel">
+      // 컴포넌트 상속
+      class LikeButton extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            // 상태.
+            liked: false,
+          };
+        } //기본적으로 쓰는 것.
+
+        render() {
+          return (
+            <button
+              type="submit"
+              onClick={() => {
+                this.setState({ liked: true });
+              }}
+            >
+              {this.state.liked === true ? "Liked" : "Like"}
+            </button>
+          );
+          // content안에서 {} 안에 넣으면 javascript로 사용이 가능하다. => {this.state.liked...}
+          //JSX(JS+XML) <button /> 처럼 닫는 /가 필요하다. (문법이 엄격하다)
+        }
+      }
+    </script>
+
+    <script type="text/babel">
+      //DOM은 화면에 직접 보여주겠다.
+      ReactDOM.render(
+        <div>
+          <LikeButton />
+          <LikeButton />
+          <LikeButton />
+        </div>,
+        document.querySelector("#root")
+      ); //LikeButton을 root안에다가 그리겠다.
+    </script>
+  </body>
+</html>
