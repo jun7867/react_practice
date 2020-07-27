@@ -27,11 +27,13 @@
             parseInt(this.state.value) ===
             this.state.first * this.state.second
           ) {
-            this.setState({
-              result: "정답!!",
-              first: Math.ceil(Math.random() * 9),
-              second: Math.ceil(Math.random() * 9),
-              value: "",
+            this.setState((Current) => {
+              return {
+                result: "정답!! " + Current.value,
+                first: Math.ceil(Math.random() * 9),
+                second: Math.ceil(Math.random() * 9),
+                value: "",
+              };
             });
           } else {
             this.setState({
@@ -47,7 +49,7 @@
 
         render() {
           return (
-            <div>
+            <>
               <div>
                 {this.state.first} 곱하기 {this.state.second}는?
               </div>
@@ -60,7 +62,7 @@
                 <button>입력! </button>
               </form>
               <div>{this.state.result}</div>
-            </div>
+            </>
           );
         }
       }
