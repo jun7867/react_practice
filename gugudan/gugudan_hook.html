@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
     <meta charset="UTF-8" />
   </head>
   <body>
@@ -15,13 +11,11 @@
         //state 선언시 함수 안에다가 써야한다.
         //use로 시작하면 hooks다.
         //비구조화 할당(= 구조 분해 할당 방식)
-        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
-        const [second, setSecond] = React.useState(
-          Math.ceil(Math.random() * 9)
-        );
-        const [value, setValue] = React.useState("");
-        const [result, setResult] = React.useState("");
-        const inputRef = React.useRef(null); //useRef로 Dom에 접근.
+        const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
+        const [value, setValue] = useState("");
+        const [result, setResult] = useState("");
+        const inputRef = useRef(null); //useRef로 Dom에 접근.
 
         const onSubmitForm = (e) => {
           e.preventDefault();
