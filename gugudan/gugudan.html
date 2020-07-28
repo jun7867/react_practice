@@ -35,16 +35,22 @@
                 value: "",
               };
             });
+            this.input.focus();
           } else {
             this.setState({
               result: `땡!! 정답은 ${this.state.first * this.state.second}`,
               value: "",
             });
+            this.input.focus();
           }
         };
 
         onChange = (e) => {
           this.setState({ value: e.target.value });
+        };
+
+        onRefInput = (c) => {
+          this.input = c;
         };
 
         render() {
@@ -55,6 +61,7 @@
               </div>
               <form onSubmit={this.onSubmit}>
                 <input
+                  ref={this.onRefInput} // input에 focus(커서) 효과 주기
                   type="number"
                   value={this.state.value}
                   onChange={this.onChange}
